@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>{{sd.title}}</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="assets/css/Stats-icons.css">
 </head>
@@ -22,36 +23,36 @@
                         <div class="col-12" style="background: rgb(127,99,162);border-radius: 10px;border-style: solid;border-width: 2px;border-color: black;">
                             <h1>Summary Data</h1>
                         </div>
-                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;">
+                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;min-height: 130px; padding: 25px 15px; display: flex; flex-direction: column; justify-content: center;">
                             <div class="row">
                                 <div class="col text-left mt-1">
-                                    <h1 class="text-dark" style="font-size: 1.5rem;">Mean walking speed</h1>
-                                    <p class="text-dark">meters / sec</p>
+                                    <h1 class="text-dark" style="font-size: 1.5rem;">Mean Walking speed</h1>
+                                    <p class="text-dark">(meters / sec)</p>
                                 </div>
                                 <div class="col-5 col-sm-6 col-md-4 align-self-center">
-                                    <p class="font-weight-bold text-dark" style="font-size: 1.5rem;">{{sd.mws}}</p>
+                                    <p class="font-weight-bold text-dark" style="font-size: 2.5rem;">{{sd.mws}}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;">
+                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;min-height: 130px; padding: 25px 15px; display: flex; flex-direction: column; justify-content: center;">
                             <div class="row">
                                 <div class="col text-left mt-1">
                                     <h1 class="text-dark" style="font-size: 1.5rem;">Walking Cadence</h1>
-                                    <p class="text-dark">steps / minute</p>
+                                    <p class="text-dark">(steps / minute)</p>
                                 </div>
                                 <div class="col-5 col-sm-6 col-md-4 align-self-center">
-                                    <p class="font-weight-bold text-dark" style="font-size: 1.5rem;">{{sd.cad}}</p>
+                                    <p class="font-weight-bold text-dark" style="font-size: 2.5rem;">{{sd.cad}}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;">
+                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;min-height: 130px; padding: 25px 15px; display: flex; flex-direction: column; justify-content: center;">
                             <div class="row">
                                 <div class="col text-left mt-1">
                                     <h1 class="text-dark" style="font-size: 1.5rem;">Stride Length</h1>
-                                    <p class="text-dark">meters</p>
+                                    <p class="text-dark">(meters)</p>
                                 </div>
                                 <div class="col-5 col-sm-6 col-md-4 align-self-center">
-                                    <p class="font-weight-bold text-dark" style="font-size: 1.5rem;">{{sd.sl}}</p>
+                                    <p class="font-weight-bold text-dark" style="font-size: 2.5rem;">{{sd.sl}}</p>
                                 </div>
                             </div>
                         </div>
@@ -96,15 +97,15 @@
     <div class="row">
         <!-- Left Column -->
         <div class="col-md-6 py-2">
-            <p class="mb-3"><strong>Assessment:</strong> {{ sd.stdt }} - {{ sd.eddt }}</p>
-            <p class="mb-3"><strong>Number of valid measurement days:</strong> {{ sd.ns }}</p>
-            <p class="mb-3"><strong>Total wear time (hours):</strong> {{ sd.mdwts }}</p>
+            <p class="mobility-report-text"><strong>Assessment:</strong> {{ sd.stdt }} - {{ sd.eddt }}</p>
+            <p class="mobility-report-text"><strong>Number of valid measurement days:</strong> {{ sd.ns }}</p>
+            <p class="mobility-report-text"><strong>Total wear time (hours):</strong> {{ sd.mdwts }}</p>
         </div>
         <!-- Right Column -->
         <div class="col-md-6 py-2">
-            <p class="mb-3"><strong>Average steps per day:</strong> {{ sd.avg_steps }}</p>
-            <p class="mb-3"><strong>Average walking time (hours/day):</strong> {{ sd.mdwth }}</p>
-            <p class="mb-3"><strong>Average speed (metres/second):</strong> {{ sd.mws }}</p>
+            <p class="mobility-report-text"><strong>Average steps per day:</strong> {{ sd.avg_steps }}</p>
+            <p class="mobility-report-text"><strong>Average walking time (hours/day):</strong> {{ sd.mdwth }}</p>
+            <p class="mobility-report-text"><strong>Average speed (metres/second):</strong> {{ sd.mws }}</p>
         </div>
     </div>
 </div>
@@ -123,7 +124,7 @@
     <!-- Walking Speed Chart -->
     <div class="row mt-3 align-items-center">
         <div class="col-md-4">
-            <p style="font-size: 1.2rem;"><strong>Average walking speed (m/sec)</strong> over all the capture sessions. This shows how your average walking speed has changed over time.</p>
+            <p class="mobility-report-text"><strong>Average walking speed (m/sec)</strong> over all the capture sessions. This shows how your average walking speed has changed over time.</p>
         </div>
         <div class="col-md-8 text-center">
             <img src="assets/img/dmo.svg" class="img-fluid" alt="Walking Speed Chart">
@@ -133,7 +134,7 @@
     <!-- Longest Walking Bout Chart -->
     <div class="row mt-4 align-items-center">
         <div class="col-md-4">
-            <p style="font-size: 1.2rem;"><strong>Longest walking bout</strong> over all capture sessions. This shows how the longest periods of walking have changed over time.</p>
+            <p class="mobility-report-text"><strong>Longest walking bout</strong> over all capture sessions. This shows how the longest periods of walking have changed over time.</p>
         </div>
         <div class="col-md-8 text-center">
             <img src="assets/img/wbd.svg" class="img-fluid" alt="Longest Walking Bout Chart">
@@ -168,8 +169,8 @@
 <div class="row mt-5">
     <div class="col-12">
         <h2 class="font-weight-bold text-primary text-left">Hourly Step Count Data</h2>
-        <p class="text-left mt-2" style="font-size: 1.2rem;">
-            This chart illustrates the number of steps taken during a given hour of the day over the data collection period.
+        <p class="mobility-report-text text-left" style="font-size: 1.2rem;">
+            This chart illustrates the <strong>number of steps</strong> taken during a given hour of the day over the data collection period.
         </p>
     </div>
 </div>

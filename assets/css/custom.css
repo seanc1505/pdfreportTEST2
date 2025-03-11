@@ -1,0 +1,4 @@
+.mobility-report-text {
+    font-size: 1.5rem !important;  /* Force Bootstrap to use this size */
+    /* font-weight: bold; */
+}
