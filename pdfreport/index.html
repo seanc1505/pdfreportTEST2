@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{{sd.title}}</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Stats-icons.css">
+</head>
+
+<body style="background: rgb(247, 240, 231);">
+    <nav class="navbar navbar-light navbar-expand bg-light align-items-start">
+        <div class="container"><img src="assets/img/Enoda%20logo-15.avif"></div>
+    </nav>
+    <header class="font-weight-normal text-center text-white masthead" style="background: url('assets/img/enoda.avif')no-repeat center center;background-size: cover;">
+        <div class="container py-4 py-xl-5">
+            <div class="row">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12" style="background: rgb(127,99,162);border-radius: 10px;border-style: solid;border-width: 2px;border-color: black;">
+                            <h1>Summary Data</h1>
+                        </div>
+                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;">
+                            <div class="row">
+                                <div class="col text-left mt-1">
+                                    <h1 class="text-dark" style="font-size: 1.5rem;">Mean walking speed</h1>
+                                    <p class="text-dark">meters / sec</p>
+                                </div>
+                                <div class="col-5 col-sm-6 col-md-4 align-self-center">
+                                    <p class="font-weight-bold text-dark" style="font-size: 1.5rem;">{{sd.mws}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;">
+                            <div class="row">
+                                <div class="col text-left mt-1">
+                                    <h1 class="text-dark" style="font-size: 1.5rem;">Walking Cadence</h1>
+                                    <p class="text-dark">steps / minute</p>
+                                </div>
+                                <div class="col-5 col-sm-6 col-md-4 align-self-center">
+                                    <p class="font-weight-bold text-dark" style="font-size: 1.5rem;">{{sd.cad}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;">
+                            <div class="row">
+                                <div class="col text-left mt-1">
+                                    <h1 class="text-dark" style="font-size: 1.5rem;">Stride Length</h1>
+                                    <p class="text-dark">meters</p>
+                                </div>
+                                <div class="col-5 col-sm-6 col-md-4 align-self-center">
+                                    <p class="font-weight-bold text-dark" style="font-size: 1.5rem;">{{sd.sl}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+ <!-- Most Recent Assessment Section (Purple Banner) -->
+<div class="container mt-4 px-5">
+    <div class="row py-3 px-4" style="background: rgb(39,9,76); border-radius: 5px;">
+        <div class="col-12 text-center">
+            <h1 class="text-light font-weight-bold" style="font-size: 2rem;">Most Recent Assessment</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content Wrapper -->
+<div class="container mt-3 py-4 px-5" style="background: #F7F0E7; border-radius: 8px;">
+    <div class="row align-items-center justify-content-between">
+        <!-- Enoda Logo -->
+        <div class="col-md-4 text-left">
+            <img src="assets/img/Enoda%20logo-15.avif" alt="Enoda Logo" style="max-height: 50px;">
+        </div>
+        <!-- Mobility Report Title -->
+        <div class="col-md-4 text-center">
+            <h2 class="font-weight-bold text-dark">Mobility Report</h2>
+        </div>
+        <!-- Patient ID -->
+        <div class="col-md-4 text-right">
+            <h5 class="text-dark font-weight-bold">Patient ID: {{ sd.pid }}</h5>
+        </div>
+    </div>
+
+    <!-- Assessment Data Section -->
+    <hr> <!-- Light divider for separation -->
+    <div class="row">
+        <div class="col-12">
+            <h2 class="font-weight-bold text-primary text-left">Daily Summary Data</h2>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-6 py-2">
+            <p class="mb-3"><strong>Assessment:</strong> {{ sd.stdt }} - {{ sd.eddt }}</p>
+            <p class="mb-3"><strong>Number of valid measurement days:</strong> {{ sd.ns }}</p>
+            <p class="mb-3"><strong>Total wear time (hours):</strong> {{ sd.mdwts }}</p>
+        </div>
+        <!-- Right Column -->
+        <div class="col-md-6 py-2">
+            <p class="mb-3"><strong>Average steps per day:</strong> {{ sd.avg_steps }}</p>
+            <p class="mb-3"><strong>Average walking time (hours/day):</strong> {{ sd.mdwth }}</p>
+            <p class="mb-3"><strong>Average speed (metres/second):</strong> {{ sd.mws }}</p>
+        </div>
+    </div>
+</div>
+
+
+    
+   <!-- Mobility Outcomes Section -->
+<div class="container mt-4 py-4 px-5" style="background: #F7F0E7; border-radius: 8px;">
+    <!-- Change in Mobility Outcomes -->
+    <div class="row">
+        <div class="col-12">
+            <h2 class="font-weight-bold text-primary text-left">Change in Mobility Outcomes</h2>
+        </div>
+    </div>
+
+    <!-- Walking Speed Chart -->
+    <div class="row mt-3 align-items-center">
+        <div class="col-md-4">
+            <p style="font-size: 1.2rem;"><strong>Average walking speed (m/sec)</strong> over all the capture sessions. This shows how your average walking speed has changed over time.</p>
+        </div>
+        <div class="col-md-8 text-center">
+            <img src="assets/img/dmo.svg" class="img-fluid" alt="Walking Speed Chart">
+        </div>
+    </div>
+
+    <!-- Longest Walking Bout Chart -->
+    <div class="row mt-4 align-items-center">
+        <div class="col-md-4">
+            <p style="font-size: 1.2rem;"><strong>Longest walking bout</strong> over all capture sessions. This shows how the longest periods of walking have changed over time.</p>
+        </div>
+        <div class="col-md-8 text-center">
+            <img src="assets/img/wbd.svg" class="img-fluid" alt="Longest Walking Bout Chart">
+        </div>
+    </div>
+
+    <!-- Mobility Outcomes Relative to Peers -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2 class="font-weight-bold text-primary text-left">Mobility Outcomes Relative to Peers</h2>
+        </div>
+    </div>
+
+    <div class="row text-center mt-3">
+        <!-- Peer Walking Speed -->
+        <div class="col-md-4">
+            <img src="assets/img/peer_ws.svg" class="img-fluid" alt="Peer Walking Speed">
+            <p class="font-weight-bold mt-2">{{ sd.pmws_comments }}</p>
+        </div>
+        <!-- Peer Cadence -->
+        <div class="col-md-4">
+            <img src="assets/img/peer_mcad.svg" class="img-fluid" alt="Peer Cadence">
+            <p class="font-weight-bold mt-2">{{ sd.pmwcad_comments }}</p>
+        </div>
+        <!-- Peer Stride Length -->
+        <div class="col-md-4">
+            <img src="assets/img/peer_msl.svg" class="img-fluid" alt="Peer Stride Length">
+            <p class="font-weight-bold mt-2">{{ sd.pmsl_comments }}</p>
+        </div>
+    </div>
+<!-- Hourly Step Count Data -->
+<div class="row mt-5">
+    <div class="col-12">
+        <h2 class="font-weight-bold text-primary text-left">Hourly Step Count Data</h2>
+        <p class="text-left mt-2" style="font-size: 1.2rem;">
+            This chart illustrates the number of steps taken during a given hour of the day over the data collection period.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 text-center">
+        <img src="assets/img/hourly_steps.svg" class="img-fluid" alt="Hourly Step Count Chart">
+    </div>
+</div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
