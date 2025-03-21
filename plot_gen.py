@@ -22,6 +22,13 @@ def save_plot(data, plot_type, xlabel, ylabel, title, filename, facecolor=(247/2
     label_size = 22
     tick_size = 18
     legend_size = 20
+    # Automatically wrap Y-label if it's too long
+    max_label_length = 15  # Set threshold for breaking
+    if len(ylabel) > max_label_length:
+        split_index = ylabel[:max_label_length].rfind(" ")  # Find last space before threshold
+        if split_index == -1: 
+            split_index = max_label_length  # If no space, break at max length
+        ylabel = ylabel[:split_index] + "\n" + ylabel[split_index+1:]
 
     if plot_type == 'bar':
         colors = ['#FF6F61', '#6B5B95']  # First = Red/Orange, Second = Purple
@@ -62,7 +69,7 @@ def save_plot(data, plot_type, xlabel, ylabel, title, filename, facecolor=(247/2
     ax.yaxis.set_major_locator(plt.MaxNLocator(5))  # Limits number of Y-ticks to ~5
     ax.tick_params(axis='y', labelsize=tick_size)  # Make Y-axis labels larger
     ax.set_xlabel(xlabel, fontsize=label_size)
-    ax.set_ylabel(ylabel, fontsize=label_size)
+    ax.set_ylabel(ylabel, fontsize=label_size,rotation=0, labelpad=80)
     ax.set_title(title, fontsize=title_size, fontweight='bold')
     ax.set_facecolor(facecolor)
     ax.spines['top'].set_visible(False)
@@ -81,7 +88,13 @@ def plot_bar_multiple(data_list, labels, ylabel, title, filename):
     title_size = 24
     label_size = 22
     tick_size = 12
-
+    # Automatically wrap Y-label if it's too long
+    max_label_length = 10  # Set threshold for breaking
+    if len(ylabel) > max_label_length:
+        split_index = ylabel[:max_label_length].rfind(" ")  # Find last space before threshold
+        if split_index == -1: 
+            split_index = max_label_length  # If no space, break at max length
+        ylabel = ylabel[:split_index] + "\n" + ylabel[split_index+1:]
     if num_plots == 1:
         axes = [axes]  # Ensure it's iterable if there's only one subplot
 
@@ -100,7 +113,7 @@ def plot_bar_multiple(data_list, labels, ylabel, title, filename):
         ax.bar(range(len(data)), data, color='#FF6F61')  # Match requested style
         ax.set_xticks(range(len(data)))
         ax.set_xticklabels(range(24), fontsize=tick_size)
-        ax.set_ylabel(ylabel, fontsize=label_size)
+        ax.set_ylabel(ylabel, fontsize=label_size,rotation=0, labelpad=80)
         ax.set_title(label, fontsize=title_size, fontweight="bold")
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
