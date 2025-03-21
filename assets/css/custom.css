@@ -95,8 +95,8 @@
 
 /* Text inside the banner */
 .assessment-text {
-    font-size: 2rem; /* Slightly smaller than the title */
-    font-weight: 700;
+    font-size: 1.5rem; /* Slightly smaller than the title */
+    font-weight: 400;
     margin: 0;
 }
 
