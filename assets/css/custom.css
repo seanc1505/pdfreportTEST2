@@ -1,6 +1,6 @@
 .navbar {
     padding: 15px 40px; /* Add some padding for better spacing */
-    background-color: rgb(247, 240, 231) !important;
+    background-color: rgb(39,9,76) !important;
 }
 
 .navbar-brand img {
@@ -11,7 +11,7 @@
 .navbar-text.mobility-report-title {
     font-size: 2.5rem; /* Make it large */
     font-weight: 900;
-    color: rgb(39,9,76); /* Matches theme */
+    color: rgb(247, 240, 231); /* Matches theme */
 }
 .assessment-section {
     margin-top: 80px; /* Increase this value for more spacing */
@@ -154,6 +154,7 @@ h2 {
     font-size: 3.5rem; /* Increased size */
     font-weight: 900; /* Extra bold */
     color: #0D2E4F;
+    margin-top: 80px;
     margin-bottom: 30px;
 }
 
@@ -163,11 +164,12 @@ h2 {
 .summary-header {
     display: flex;
     justify-content: space-between;
-    font-weight: 900; /* Extra bold */
+    font-weight: 900;
     color: #4A106C;
-    font-size: 2rem; /* Increased size */
-    margin-bottom: 15px;
-    padding: 15px;
+    font-size: 2rem;
+    padding-bottom: 5px; /
+    text-align: center;
+    margin-bottom:1px; /* Reduce the gap between header and first box */
 }
 
 .header-item {
@@ -186,11 +188,15 @@ h2 {
     align-items: center;
     background: rgb(247, 240, 231);
     border-radius: 20px;
-    border: 6px solid rgb(255, 138, 107); /* Much thicker border */
-    padding: 30px;
+    border: 6px solid rgb(255, 138, 107);
+    padding: 25px;
     margin: 20px 0;
-    font-size: 2rem; /* Bigger text */
-    width: 95%; /* Takes more space */
+    font-size: 2rem;
+    width: 100%;  /* Ensures full width alignment */
+    text-align: center;
+}
+.summary-box:first-child {
+    margin-top: 0; /* Ensures the first box starts right under the header */
 }
 
 /* ============================= */
@@ -235,5 +241,5 @@ h2 {
     height: 100vh;  /* Full height */
     width: 100%;  /* Full width */
     object-fit: cover;  /* Ensures it fills the space */
-    object-position: right center; /* Crops the left side */
+    object-position:  center; /* Crops the left side */
 }

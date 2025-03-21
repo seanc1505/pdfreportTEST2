@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <!-- Left: Enoda Logo -->
             <a class="navbar-brand" href="#">
-                <img src="assets/img/Enoda%20logo-15.avif" alt="Enoda Logo" class="header-logo">
+                <img src="assets/img/Enoda logo-13.png" alt="Enoda Logo" class="header-logo">
             </a>
             <!-- Right: Mobility Report -->
             <span class="navbar-text mobility-report-title">Mobility Report</span>
@@ -31,26 +31,26 @@
                 <div class="summary-table">
                     <div class="summary-header">
                         <span class="header-item">Measure</span>
-                        <span class="header-item">Value</span>
-                        <span class="header-item">Change</span>
+                        <span class="header-item text-right">Value</span>
+                        <span class="header-item text-right">Change</span>
                     </div>
     
                     <div class="summary-box">
                         <div class="measure">Walking Speed <br> <span>(metres / second)</span></div>
                         <div class="value"><strong>0.59</strong></div>
-                        <div class="change"><strong>+2%</strong></div>
+                        <div class="change text-right"><strong>+2%</strong></div>
                     </div>
     
                     <div class="summary-box">
                         <div class="measure">Walking Cadence <br> <span>(steps / minute)</span></div>
                         <div class="value"><strong>84</strong></div>
-                        <div class="change"><strong>+3%</strong></div>
+                        <div class="change text-right"><strong>+3%</strong></div>
                     </div>
     
                     <div class="summary-box">
                         <div class="measure">Stride Length <br> <span>(metres)</span></div>
                         <div class="value"><strong>0.89</strong></div>
-                        <div class="change"><strong>+1%</strong></div>
+                        <div class="change text-right"><strong>+1%</strong></div>
                     </div>
                 </div>
             </div>
@@ -124,22 +124,24 @@
 
     <!-- Walking Speed Chart -->
     <div class="row mt-3 align-items-center">
-        <div class="col-md-4">
-            <p class="mobility-report-text"><strong>Average walking speed (m/sec)</strong> over all the capture sessions. This shows how your average walking speed has changed over time.</p>
-        </div>
         <div class="col-md-8 text-center">
             <img src="assets/img/dmo.svg" class="img-fluid" alt="Walking Speed Chart">
         </div>
+        <div class="col-md-4">
+            <p class="mobility-report-text"><strong>Average walking speed (m/sec)</strong> over all the capture sessions. This shows how your average walking speed has changed over time.</p>
+        </div>
+        
     </div>
 
     <!-- Longest Walking Bout Chart -->
     <div class="row mt-4 align-items-center">
-        <div class="col-md-4">
-            <p class="mobility-report-text"><strong>Longest walking bout</strong> over all capture sessions. This shows how the longest periods of walking have changed over time.</p>
-        </div>
         <div class="col-md-8 text-center">
             <img src="assets/img/wbd.svg" class="img-fluid" alt="Longest Walking Bout Chart">
         </div>
+        <div class="col-md-4">
+            <p class="mobility-report-text"><strong>Longest walking bout</strong> over all capture sessions. This shows how the longest periods of walking have changed over time.</p>
+        </div>
+        
     </div>
 
     <!-- Mobility Outcomes Relative to Peers -->
@@ -149,30 +151,33 @@
         </div>
     </div>
     <div class="row graph-row align-items-center">
-        <div class="col-md-5">
-            <p class="mobility-report-text">Your walking speed is faster than the average for your condition</p>
-        </div>
         <div class="col-md-7 text-center">
             <img src="assets/img/peer_ws.svg" class="img-fluid" alt="Peer Walking Speed">
         </div>
+    
+    <div class="col-md-5">
+            <p class="mobility-report-text">Your walking speed is faster than the average for your condition</p>
+        </div>
     </div>
 
     <div class="row graph-row align-items-center">
-        <div class="col-md-5">
-            <p class="mobility-report-text">Your stride length is longer than average for your condition</p>
-        </div>
+    
         <div class="col-md-7 text-center">
             <img src="assets/img/peer_mcad.svg" class="img-fluid" alt="Peer Cadence">
         </div>
+        <div class="col-md-5">
+            <p class="mobility-report-text">Your stride length is longer than average for your condition</p>
+        </div>
     </div>
 
     <div class="row graph-row align-items-center">
-        <div class="col-md-5">
-            <p class="mobility-report-text">Your stride length is the same as others with your condition</p>
-        </div>
         <div class="col-md-7 text-center">
             <img src="assets/img/peer_msl.svg" class="img-fluid" alt="Peer Stride Length">
         </div>
+        <div class="col-md-5">
+            <p class="mobility-report-text">Your stride length is the same as others with your condition</p>
+        </div>
+        
     </div>
 <!-- Daily Activity Plots -->
 <div class="row mt-5">
