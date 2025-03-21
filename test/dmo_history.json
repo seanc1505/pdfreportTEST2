@@ -1,0 +1,62 @@
+[
+    {
+        "MeanStrideLength": 2.5879110828142347,
+        "StageName": "Timepoint 1",
+        "MeanWalkingSpeed": 2.23,
+        "MeanWalkingBoutDuration": 9.159056603773585,
+        "MaximumWalkingBoutDuration": 33.16,
+        "Days": 2,
+        "StageID": 95,
+        "MeanCadence": 96.89800695641709,
+        "StartDay": "2024-12-11",
+        "PropertyUUID": "0ff2113e-061d-441d-8129-6457aee5710f"
+    },
+    {
+        "MeanStrideLength": 2.5879110828142347,
+        "StageName": "Timepoint 1",
+        "MeanWalkingSpeed": 2.01,
+        "MeanWalkingBoutDuration": 9.159056603773585,
+        "MaximumWalkingBoutDuration": 40.1,
+        "Days": 2,
+        "StageID": 95,
+        "MeanCadence": 96.89800695641709,
+        "StartDay": "2024-12-11",
+        "PropertyUUID": "3ed787f3-65f6-4298-b1f9-b7c8ed17e011"
+    },
+    {
+        "MeanStrideLength": 2.5879110828142347,
+        "StageName": "Timepoint 1",
+        "MeanWalkingSpeed": 2.15,
+        "MeanWalkingBoutDuration": 9.159056603773585,
+        "MaximumWalkingBoutDuration": 39.8,
+        "Days": 2,
+        "StageID": 95,
+        "MeanCadence": 96.89800695641709,
+        "StartDay": "2024-12-11",
+        "PropertyUUID": "66b89087-8f8e-42b7-8d0b-b80cc38ba76e"
+    },
+    {
+        "MeanStrideLength": 2.5879110828142347,
+        "StageName": "Timepoint 1",
+        "MeanWalkingSpeed": 1.90,
+        "MeanWalkingBoutDuration": 9.159056603773585,
+        "MaximumWalkingBoutDuration": 37.6,
+        "Days": 2,
+        "StageID": 95,
+        "MeanCadence": 96.89800695641709,
+        "StartDay": "2024-12-11",
+        "PropertyUUID": "518c783e-175e-4d98-bf72-9d584e776686"
+    },
+    {
+        "MeanStrideLength": 2.5879110828142347,
+        "StageName": "Timepoint 1",
+        "MeanWalkingSpeed": 1.85,
+        "MeanWalkingBoutDuration": 9.159056603773585,
+        "MaximumWalkingBoutDuration": 33.16,
+        "Days": 2,
+        "StageID": 95,
+        "MeanCadence": 96.89800695641709,
+        "StartDay": "2024-12-11",
+        "PropertyUUID": "f3b3e3c6-f459-4611-9517-e64f9158a126"
+    }
+]

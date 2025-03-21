@@ -1,4 +1,239 @@
+.navbar {
+    padding: 15px 40px; /* Add some padding for better spacing */
+    background-color: rgb(247, 240, 231) !important;
+}
+
+.navbar-brand img {
+    height: 100px; /* Adjust logo size */
+}
+
+/* Right align "Mobility Report" */
+.navbar-text.mobility-report-title {
+    font-size: 2.5rem; /* Make it large */
+    font-weight: 900;
+    color: rgb(39,9,76); /* Matches theme */
+}
+.assessment-section {
+    margin-top: 80px; /* Increase this value for more spacing */
+}
+
+/* ============================= */
+/* 1. Header Section (Enoda Left, Mobility Report Right) */
+/* ============================= */
+.header-section {
+    display: flex;
+    justify-content: space-between; /* Pushes Enoda left, Mobility Report right */
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.header-logo {
+    font-size: 3rem; /* Bigger text for "Enoda" */
+    font-weight: 900;
+    text-align: left;
+}
+
+.mobility-report-title {
+    font-size: 3rem; /* Bigger text for "Mobility Report" */
+    font-weight: 900;
+    text-align: right;
+    color: rgb(39,9,76);;
+}
+
+/* ============================= */
+/* 2. Most Recent Assessment Banner (First Row) */
+/* ============================= */
+.assessment-banner {
+    background: rgb(39,9,76); /* Purple background */
+    color: white;
+    border-radius: 20px 20px 0 0; /* Rounded top edges */
+    padding: 30px 40px;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Large centered title */
+.assessment-title {
+    font-size: 3.5rem; /* Big title */
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+}
+
+/* ============================= */
+/* 3. Assessment Info Section (Second Row) */
+/* ============================= */
+.assessment-info {
+    background: rgb(39,9,76); /* Same purple background */
+    color: white;
+    border-radius: 0 0 20px 20px; /* Rounded bottom edges */
+    padding: 20px 40px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+/* Aligning the three columns */
+.assessment-info .col-md-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Left aligns first column, centers second, right aligns third */
+.assessment-info .col-md-4:first-child {
+    justify-content: flex-start;
+}
+
+.assessment-info .col-md-4:last-child {
+    justify-content: flex-end;
+}
+
+/* Text inside the banner */
+.assessment-text {
+    font-size: 2rem; /* Slightly smaller than the title */
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ============================= */
+/* 4. Expand Bottom Content & Increase Text Size */
+/* ============================= */
+.bottom-section {
+    padding: 60px 40px; /* More space */
+    font-size: 2.2rem; /* Larger text for readability */
+}
+
+/* ============================= */
+/* 5. Enlarge Graphs & Make Them One Per Line */
+/* ============================= */
+.graph-row {
+    width: 100%; /* Full width */
+    margin-bottom: 40px; /* More spacing between graphs */
+}
+
+.graph-row img {
+    width: 100%; /* Ensure graph takes full width */
+    height: auto;
+    max-height: 500px; /* Limits extreme stretching */
+}
+
+/* ============================= */
+/* 6. Enlarge Headings & Labels */
+/* ============================= */
 .mobility-report-text {
-    font-size: 1.5rem !important;  /* Force Bootstrap to use this size */
+    font-size: 2rem; /* Make text much larger */
     /* font-weight: bold; */
+}
+
+h2 {
+    font-size: 3rem; /* Make all section titles larger */
+    font-weight: 900; /* Extra bold */
+}
+
+/* ============================= */
+/* 7. Left Section Alignment */
+/* ============================= */
+.col-lg-7 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh; /* Ensures equal height */
+    padding-left: 5%; /* Moves text slightly left */
+}
+
+/* ============================= */
+/* 8. Title Styling: Much Larger */
+/* ============================= */
+.summary-title {
+    text-align: left;
+    font-size: 3.5rem; /* Increased size */
+    font-weight: 900; /* Extra bold */
+    color: #0D2E4F;
+    margin-bottom: 30px;
+}
+
+/* ============================= */
+/* 9. Table Header: Bigger & Thicker */
+/* ============================= */
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 900; /* Extra bold */
+    color: #4A106C;
+    font-size: 2rem; /* Increased size */
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+.header-item {
+    flex: 1;
+    font-weight: 900; /* Extra bold */
+    text-align: center;
+    font-size: 2.5rem
+}
+
+/* ============================= */
+/* 10. Box Styling: Bigger & Thicker */
+/* ============================= */
+.summary-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(247, 240, 231);
+    border-radius: 20px;
+    border: 6px solid rgb(255, 138, 107); /* Much thicker border */
+    padding: 30px;
+    margin: 20px 0;
+    font-size: 2rem; /* Bigger text */
+    width: 95%; /* Takes more space */
+}
+
+/* ============================= */
+/* 11. Measure Column: Bigger & Bolder */
+/* ============================= */
+.summary-box .measure {
+    flex: 2;
+    font-size: 2.5rem; /* Increased size */
+    font-weight: 800; /* Thicker text */
+}
+
+/* Subtext (units like "meters/second") */
+.summary-box .measure span {
+    font-size: 1.8rem;
+    font-weight: 700; /* Bolder */
+    color: #666;
+}
+
+/* ============================= */
+/* 12. Value: Bigger & Centered */
+/* ============================= */
+.summary-box .value {
+    flex: 1;
+    font-size: 3rem; /* Increased size */
+    font-weight: 900; /* Extra bold */
+    text-align: center;
+}
+
+/* ============================= */
+/* 13. Change: Bigger & Bolder */
+/* ============================= */
+.summary-box .change {
+    flex: 1;
+    font-size: 3rem; /* Increased size */
+    font-weight: 900; /* Extra bold */
+}
+
+/* ============================= */
+/* 14. Right Side Image - Crop Left Side */
+/* ============================= */
+.col-lg-5 img {
+    height: 100vh;  /* Full height */
+    width: 100%;  /* Full width */
+    object-fit: cover;  /* Ensures it fills the space */
+    object-position: right center; /* Crops the left side */
 }

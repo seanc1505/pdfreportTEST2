@@ -1,0 +1,13 @@
+{
+ "foot_length_cm": 25,
+ "sensor_attachment_su": "Body-Worn",
+ "weight_kg": 73,
+ "indip_data_used": "All",
+ "walking_aid_used": false,
+ "cohort": "PD",
+ "session_timezone": "GMT",
+ "sensor_height_m": 0.964,
+ "height_m": 1.59,
+ "session_timestamp": 1733961600023,
+ "session_day": "2024-12-12"
+}

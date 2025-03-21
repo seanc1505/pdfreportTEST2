@@ -12,103 +12,104 @@
 </head>
 
 <body style="background: rgb(247, 240, 231);">
-    <nav class="navbar navbar-light navbar-expand bg-light align-items-start">
-        <div class="container"><img src="assets/img/Enoda%20logo-15.avif"></div>
+    <nav class="navbar navbar-light navbar-expand bg-light align-items-center">
+        <div class="container-fluid">
+            <!-- Left: Enoda Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/Enoda%20logo-15.avif" alt="Enoda Logo" class="header-logo">
+            </a>
+            <!-- Right: Mobility Report -->
+            <span class="navbar-text mobility-report-title">Mobility Report</span>
+        </div>
     </nav>
-    <header class="font-weight-normal text-center text-white masthead" style="background: url('assets/img/enoda.avif')no-repeat center center;background-size: cover;">
-        <div class="container py-4 py-xl-5">
-            <div class="row">
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col-12" style="background: rgb(127,99,162);border-radius: 10px;border-style: solid;border-width: 2px;border-color: black;">
-                            <h1>Summary Data</h1>
-                        </div>
-                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;min-height: 130px; padding: 25px 15px; display: flex; flex-direction: column; justify-content: center;">
-                            <div class="row">
-                                <div class="col text-left mt-1">
-                                    <h1 class="text-dark" style="font-size: 1.5rem;">Mean Walking speed</h1>
-                                    <p class="text-dark">(meters / sec)</p>
-                                </div>
-                                <div class="col-5 col-sm-6 col-md-4 align-self-center">
-                                    <p class="font-weight-bold text-dark" style="font-size: 2.5rem;">      2.24</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;min-height: 130px; padding: 25px 15px; display: flex; flex-direction: column; justify-content: center;">
-                            <div class="row">
-                                <div class="col text-left mt-1">
-                                    <h1 class="text-dark" style="font-size: 1.5rem;">Walking Cadence</h1>
-                                    <p class="text-dark">(steps / minute)</p>
-                                </div>
-                                <div class="col-5 col-sm-6 col-md-4 align-self-center">
-                                    <p class="font-weight-bold text-dark" style="font-size: 2.5rem;">     96.90</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 mt-2 bg-light" style="border-radius: 10px;border-color: rgb(39,9,76);border-width: 2px;border-style: solid;min-height: 130px; padding: 25px 15px; display: flex; flex-direction: column; justify-content: center;">
-                            <div class="row">
-                                <div class="col text-left mt-1">
-                                    <h1 class="text-dark" style="font-size: 1.5rem;">Stride Length</h1>
-                                    <p class="text-dark">(meters)</p>
-                                </div>
-                                <div class="col-5 col-sm-6 col-md-4 align-self-center">
-                                    <p class="font-weight-bold text-dark" style="font-size: 2.5rem;">      2.59</p>
-                                </div>
-                            </div>
-                        </div>
+    <header class="container-fluid py-5">
+        <div class="row align-items-stretch">
+            <!-- Left Column: Wider Summary Data Section -->
+            <div class="col-lg-7 d-flex flex-column justify-content-center px-5">
+                <h2 class="summary-title text-center">Summary Data</h2>
+    
+                <div class="summary-table">
+                    <div class="summary-header">
+                        <span class="header-item">Measure</span>
+                        <span class="header-item">Value</span>
+                        <span class="header-item">Change</span>
+                    </div>
+    
+                    <div class="summary-box">
+                        <div class="measure">Walking Speed <br> <span>(metres / second)</span></div>
+                        <div class="value"><strong>0.59</strong></div>
+                        <div class="change"><strong>+2%</strong></div>
+                    </div>
+    
+                    <div class="summary-box">
+                        <div class="measure">Walking Cadence <br> <span>(steps / minute)</span></div>
+                        <div class="value"><strong>84</strong></div>
+                        <div class="change"><strong>+3%</strong></div>
+                    </div>
+    
+                    <div class="summary-box">
+                        <div class="measure">Stride Length <br> <span>(metres)</span></div>
+                        <div class="value"><strong>0.89</strong></div>
+                        <div class="change"><strong>+1%</strong></div>
                     </div>
                 </div>
             </div>
+    
+            <!-- Right Column: Full-Height Image -->
+            <div class="col-lg-5 p-0">
+                <img src="assets/img/cropped_enoda.png" alt="Background Image" class="img-fluid w-100 vh-100" style="object-fit: cover;">
+            </div>
         </div>
     </header>
- <!-- Most Recent Assessment Section (Purple Banner) -->
-<div class="container mt-4 px-5">
-    <div class="row py-3 px-4" style="background: rgb(39,9,76); border-radius: 5px;">
+    
+    
+<!-- Most Recent Assessment Section -->
+<div class="container-fluid assessment-section">
+    <div class="row py-4 px-5 assessment-banner">
         <div class="col-12 text-center">
-            <h1 class="text-light font-weight-bold" style="font-size: 2rem;">Most Recent Assessment</h1>
+            <h1 class="assessment-title">Most Recent Assessment</h1>
+        </div>
+    </div>
+    <div class="row py-3 px-5 assessment-info">
+        <div class="col-md-4 text-left">
+            <p class="assessment-text"><strong>Dates:</strong> 01/03/2025 – 06/03/2025</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <p class="assessment-text"><strong>Valid Measurement Days:</strong> 5</p>
+        </div>
+        <div class="col-md-4 text-right">
+            <p class="assessment-text"><strong>Total Wear Time (hours):</strong> 140</p>
         </div>
     </div>
 </div>
 
+
 <!-- Main Content Wrapper -->
-<div class="container mt-3 py-4 px-5" style="background: #F7F0E7; border-radius: 8px;">
-    <div class="row align-items-center justify-content-between">
-        <!-- Enoda Logo -->
-        <div class="col-md-4 text-left">
-            <img src="assets/img/Enoda%20logo-15.avif" alt="Enoda Logo" style="max-height: 50px;">
-        </div>
-        <!-- Mobility Report Title -->
-        <div class="col-md-4 text-center">
-            <h2 class="font-weight-bold text-dark">Mobility Report</h2>
-        </div>
-        <!-- Patient ID -->
-        <div class="col-md-4 text-right">
-            <h5 class="text-dark font-weight-bold">Patient ID: 800</h5>
-        </div>
-    </div>
+<!-- <div class="container mt-3 py-4 px-5" style="background: #F7F0E7; border-radius: 8px;"> -->
+    
 
     <!-- Assessment Data Section -->
     <hr> <!-- Light divider for separation -->
-    <div class="row">
-        <div class="col-12">
-            <h2 class="font-weight-bold text-primary text-left">Daily Summary Data</h2>
-        </div>
-    </div>
-    <div class="row">
+    <!-- <div class="row"> -->
+        <!-- <div class="col-12"> -->
+            <!-- <h2 class="font-weight-bold text-primary text-left">Daily Summary Data</h2> -->
+        <!-- </div> -->
+    <!-- </div> -->
+    <!-- <div class="row"> -->
         <!-- Left Column -->
-        <div class="col-md-6 py-2">
-            <p class="mobility-report-text"><strong>Assessment:</strong> 2024-12-11 - 2024-12-12</p>
-            <p class="mobility-report-text"><strong>Number of valid measurement days:</strong> 2</p>
+        <!-- <div class="col-md-6 py-2"> -->
+            <!-- <p class="mobility-report-text"><strong>Assessment:</strong> 2024-12-11 - 2024-12-12</p> -->
+            <!-- <p class="mobility-report-text"><strong>Number of valid measurement days:</strong> 2</p>
             <p class="mobility-report-text"><strong>Total wear time (hours):</strong>     242.72</p>
-        </div>
+        </div> -->
         <!-- Right Column -->
-        <div class="col-md-6 py-2">
+        <!-- <div class="col-md-6 py-2">
             <p class="mobility-report-text"><strong>Average steps per day:</strong>      15000</p>
             <p class="mobility-report-text"><strong>Average walking time (hours/day):</strong> 0.07</p>
             <p class="mobility-report-text"><strong>Average speed (metres/second):</strong>       2.24</p>
         </div>
-    </div>
-</div>
+    </div> -->
+<!-- </div> -->
 
 
     
@@ -147,36 +148,44 @@
             <h2 class="font-weight-bold text-primary text-left">Mobility Outcomes Relative to Peers</h2>
         </div>
     </div>
-
-    <div class="row text-center mt-3">
-        <!-- Peer Walking Speed -->
-        <div class="col-md-4">
+    <div class="row graph-row align-items-center">
+        <div class="col-md-5">
+            <p class="mobility-report-text">Your walking speed is faster than the average for your condition</p>
+        </div>
+        <div class="col-md-7 text-center">
             <img src="assets/img/peer_ws.svg" class="img-fluid" alt="Peer Walking Speed">
-            <p class="font-weight-bold mt-2">Your walking speed is faster than the average for your condition</p>
-        </div>
-        <!-- Peer Cadence -->
-        <div class="col-md-4">
-            <img src="assets/img/peer_mcad.svg" class="img-fluid" alt="Peer Cadence">
-            <p class="font-weight-bold mt-2">Your walking cadence is higher than average for your condition</p>
-        </div>
-        <!-- Peer Stride Length -->
-        <div class="col-md-4">
-            <img src="assets/img/peer_msl.svg" class="img-fluid" alt="Peer Stride Length">
-            <p class="font-weight-bold mt-2">Your stride length is longer than average for your condition</p>
         </div>
     </div>
-<!-- Hourly Step Count Data -->
+
+    <div class="row graph-row align-items-center">
+        <div class="col-md-5">
+            <p class="mobility-report-text">Your walking cadence is higher than average for your condition</p>
+        </div>
+        <div class="col-md-7 text-center">
+            <img src="assets/img/peer_mcad.svg" class="img-fluid" alt="Peer Cadence">
+        </div>
+    </div>
+
+    <div class="row graph-row align-items-center">
+        <div class="col-md-5">
+            <p class="mobility-report-text">Your stride length is longer than average for your condition</p>
+        </div>
+        <div class="col-md-7 text-center">
+            <img src="assets/img/peer_msl.svg" class="img-fluid" alt="Peer Stride Length">
+        </div>
+    </div>
+<!-- Daily Activity Plots -->
 <div class="row mt-5">
     <div class="col-12">
-        <h2 class="font-weight-bold text-primary text-left">Hourly Step Count Data</h2>
+        <h2 class="font-weight-bold text-primary text-left">Daily Activity Plots</h2>
         <p class="mobility-report-text text-left" style="font-size: 1.2rem;">
-            This chart illustrates the <strong>number of steps</strong> taken during a given hour of the day over the data collection period.
+            These charts below detail your general activity levels during the day.
         </p>
     </div>
 </div>
 <div class="row">
     <div class="col-12 text-center">
-        <img src="assets/img/hourly_steps.svg" class="img-fluid" alt="Hourly Step Count Chart">
+        <img src="assets/img/hourly_steps.svg" class="img-fluid" alt="Daily Activity level Chart">
     </div>
 </div>
 
