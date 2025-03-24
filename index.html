@@ -34,10 +34,10 @@
         
         <div class="summary-table">
           <div class="summary-header">
-            <span class="header-item">Measure</span>
-            <span class="header-item text-right">Value</span>
-            <span class="header-item text-right">Change</span>
-          </div>
+            <div class="header-item measure-header">Measure</div>
+            <div class="header-item value-header">Value</div>
+            <div class="header-item change-header">Change</div>
+        </div>
 
           <div class="summary-box">
             <div class="measure">
@@ -51,7 +51,7 @@
             <div class="measure">
               Walking Cadence <br><span>(steps / minute)</span>
             </div>
-            <div class="value"><strong>84</strong></div>
+            <div class="value "><strong>84</strong></div>
             <div class="change text-right"><strong>+3%</strong></div>
           </div>
 
@@ -81,24 +81,40 @@
     <div class="assessment-banner">
       <h1 class="assessment-title">Most Recent Assessment</h1>
     </div>
+  
+    <!-- Single row with 4 columns -->
     <div class="assessment-info">
-      <div class="assessment-col text-left">
-        <p class="assessment-text">
-          <strong>Dates:</strong> 01/03/2025 &ndash; 06/03/2025
-        </p>
+      
+      <!-- Column 1: Left Labels (Dates) -->
+      <div class="assessment-col-label text-left">
+        <p class="assessment-text"><strong>Start date:</strong></p>
+        <p class="assessment-text"><strong>End Date:</strong></p>
+        <p class="assessment-text"><strong>Valid Measurement Days:</strong></p>
       </div>
-      <div class="assessment-col text-center">
-        <p class="assessment-text">
-          <strong>Valid Measurement Days:</strong> 5
-        </p>
+  
+      <!-- Column 2: Left Values -->
+      <div class="assessment-col-value text-left">
+        <p class="assessment-text">01/03/2025</p>
+        <p class="assessment-text">06/03/2025</p>
+        <p class="assessment-text">5</p>
       </div>
-      <div class="assessment-col text-right">
-        <p class="assessment-text">
-          <strong>Total Wear Time (hours):</strong> 140
-        </p>
+  
+      <!-- Column 3: Right Labels -->
+      <div class="assessment-col-label text-right">
+        <p class="assessment-text"><strong>Total Wear Time (hours):</strong></p>
+        <p class="assessment-text"><strong>Number of walking bouts:</strong></p>
+        <p class="assessment-text"><strong>Time spent walking (hours):</strong></p>
+      </div>
+  
+      <!-- Column 4: Right Values -->
+      <div class="assessment-col-value text-right">
+        <p class="assessment-text">140</p>
+        <p class="assessment-text">424</p>
+        <p class="assessment-text">2.3</p>
       </div>
     </div>
   </section>
+  
 
   <hr class="divider" />
 
@@ -181,7 +197,7 @@
     <div class="text-center">
       <img
         src="assets/img/hourly_steps.svg"
-        class="chart-image"
+        class="bigger-chart"
         alt="Daily Activity level Chart"
       />
     </div>
