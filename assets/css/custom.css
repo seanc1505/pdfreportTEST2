@@ -14,17 +14,22 @@
     color: rgb(247, 240, 231); /* Matches theme */
 }
 .assessment-section {
-    margin-top: 80px; /* Increase this value for more spacing */
+    margin-top: 80px;
+    /* margin-top: 80px;  */
 }
 
 /* ============================= */
 /* 1. Header Section (Enoda Left, Mobility Report Right) */
 /* ============================= */
+header .row {
+    height: 100vh;
+    margin: 0;
+}
 .header-section {
     display: flex;
     justify-content: space-between; /* Pushes Enoda left, Mobility Report right */
     align-items: center;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     padding: 20px 0;
 }
@@ -145,13 +150,15 @@ h2 {
     height: 100vh; /* Ensures equal height */
     padding-left: 5%; /* Moves text slightly left */
 }
-
+.col-lg-5 {
+    height: 100vh;
+}
 /* ============================= */
 /* 8. Title Styling: Much Larger */
 /* ============================= */
 .summary-title {
     text-align: left;
-    font-size: 3.5rem; /* Increased size */
+    font-size: 3.rem; /* Increased size */
     font-weight: 900; /* Extra bold */
     color: #0D2E4F;
     margin-top: 80px;
@@ -166,8 +173,8 @@ h2 {
     justify-content: space-between;
     font-weight: 900;
     color: #4A106C;
-    font-size: 2rem;
-    padding-bottom: 5px; /
+    font-size: 1.8rem;
+    padding-bottom: 5px; 
     text-align: center;
     margin-bottom:1px; /* Reduce the gap between header and first box */
 }
@@ -176,7 +183,7 @@ h2 {
     flex: 1;
     font-weight: 900; /* Extra bold */
     text-align: center;
-    font-size: 2.5rem
+    font-size: 2.2rem
 }
 
 /* ============================= */
@@ -190,7 +197,7 @@ h2 {
     border-radius: 20px;
     border: 6px solid rgb(255, 138, 107);
     padding: 25px;
-    margin: 20px 0;
+    margin: 25px 0;
     font-size: 2rem;
     width: 100%;  /* Ensures full width alignment */
     text-align: center;
@@ -204,13 +211,13 @@ h2 {
 /* ============================= */
 .summary-box .measure {
     flex: 2;
-    font-size: 2.5rem; /* Increased size */
+    font-size: 2.2rem; /* Increased size */
     font-weight: 800; /* Thicker text */
 }
 
 /* Subtext (units like "meters/second") */
 .summary-box .measure span {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700; /* Bolder */
     color: #666;
 }
@@ -220,7 +227,7 @@ h2 {
 /* ============================= */
 .summary-box .value {
     flex: 1;
-    font-size: 3rem; /* Increased size */
+    font-size: 2.2rem; /* Increased size */
     font-weight: 900; /* Extra bold */
     text-align: center;
 }
@@ -230,7 +237,7 @@ h2 {
 /* ============================= */
 .summary-box .change {
     flex: 1;
-    font-size: 3rem; /* Increased size */
+    font-size: 2.2rem; /* Increased size */
     font-weight: 900; /* Extra bold */
 }
 
@@ -238,8 +245,8 @@ h2 {
 /* 14. Right Side Image - Crop Left Side */
 /* ============================= */
 .col-lg-5 img {
-    height: 100vh;  /* Full height */
-    width: 100%;  /* Full width */
-    object-fit: cover;  /* Ensures it fills the space */
-    object-position:  center; /* Crops the left side */
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
 }
