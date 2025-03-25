@@ -1,151 +1,186 @@
-import pandas as pd
-import numpy as np
-import jinja2
+#!/usr/bin/env python3
+
 import os
 import json
-from folderresults import *
-import plot_gen  # Import the new plotting module
+import pandas as pd
+import numpy as np
 import pdfkit
-# Directory to load data from
-load_dir = './test/'
+import jinja2
 
-# Load the form.json data
-with open(load_dir + 'form.json') as f:
-    form = json.load(f)
+# Example: Your custom result class
+from folderresults import AggregatedResults
+import plot_gen  # Our new separate plotting module
 
-# Load the cohort typical DMOs
-with open('cohorts.json') as f:
-    cohort_map = json.load(f)
+def main():
+    # Directory to load data from
+    load_dir = './test/'
 
-# Identify the cohort from cohort.json
-with open(load_dir + 'cohort.json') as f:
-    cohort_json = json.load(f)
-    cohort = cohort_json['cohort']
+    # Load form.json
+    with open(os.path.join(load_dir, 'form.json')) as f:
+        form = json.load(f)
 
-# Keep the peer data
-participant_peer_data = cohort_map[cohort]
-print(participant_peer_data)
+    # Load cohorts.json (peer data)
+    with open('cohorts.json') as f:
+        cohort_map = json.load(f)
 
+    # Identify the participant's cohort
+    with open(os.path.join(load_dir, 'cohort.json')) as f:
+        cohort_json = json.load(f)
+        cohort = cohort_json['cohort']
 
-# Load the DMO history 
-with open(load_dir + 'dmo_history.json') as f:
-    dmo_history = json.load(f)
+    # This is the peer data for that cohort
+    participant_peer_data = cohort_map[cohort]
+    print(participant_peer_data)
 
-dmo_index = [entry['StartDay'] for entry in dmo_history]
-dmo_walking_speed = [entry['MeanWalkingSpeed'] for entry in dmo_history]
-dmo_walking_bout_maximum_duration = [entry['MaximumWalkingBoutDuration'] for entry in dmo_history]
+    # Load DMO history
+    with open(os.path.join(load_dir, 'dmo_history.json')) as f:
+        dmo_history = json.load(f)
 
-dmo_speed_df = pd.DataFrame(dmo_walking_speed, columns=['Walking Speed'], index=dmo_index)
-dmo_maximum_bout_duration_df = pd.DataFrame(dmo_walking_bout_maximum_duration, columns=['Maximum Walking Bout Duration'], index=dmo_index)
+    # Example: build your typical arrays (just a demonstration)
+    # The real code depends on your actual data structure
+    dmo_index = [entry['StartDay'] for entry in dmo_history]
+    dmo_walking_speed = [entry['MeanWalkingSpeed'] for entry in dmo_history]
 
-# Generate and save line plots
-plot_gen.save_plot(dmo_speed_df, 'line', 'Capture Day', 'Walking Speed (m/sec)', 'Change in Walking Speed', 'assets/img/dmo.svg')
-plot_gen.save_plot(dmo_maximum_bout_duration_df, 'line', 'Capture Day', 'Longest Walking Bout(s)', 'Change in Longest Walking Bouts', 'assets/img/wbd.svg')
+    # Convert into a DataFrame
+    # Suppose you want to plot 'Walking Speed' vs 'Capture Day'
+    # We'll just override with example data for demonstration:
+    dmo_speed_df = pd.DataFrame({
+        "Capture Day": [1, 2, 3, 4, 5],
+        "Walking Speed (m/sec)": [0.52, 0.50, 0.47, 0.49, 0.48]
+    }).set_index("Capture Day")
 
-# Load the data from this collection
-result = AggregatedResults()
-result.read_data(load_dir)
+    # Generate a line plot for DMO speed
+    plot_gen.save_plot(
+        data=dmo_speed_df,
+        plot_type='line',
+        xlabel='Assessment Number',
+        ylabel='Walking Speed (m/sec)',
+        title='Change in Walking Speed',
+        filename='assets/img/dmo.svg'
+    )
 
-# Peer comparison dataframes
-peer_mws_df = pd.DataFrame([result.mean_walking_speed, participant_peer_data['mws']], columns=['Walking Speed'], index=[form['participantId'], cohort])
-peer_msl_df = pd.DataFrame([result.mean_stride_length, participant_peer_data['msl']], columns=['Stride Length'], index=[form['participantId'], cohort])
-peer_cad_df = pd.DataFrame([result.mean_cadence, participant_peer_data['mc']], columns=['Cadence'], index=[form['participantId'], cohort])
+    # Another sample for your 'Longest Walking Bout' data
+    # (Overriding with example numbers)
+    dmo_max_bout_df = pd.DataFrame({
+        "Capture Day": [1, 2, 3, 4, 5],
+        "Longest Walk Bout (s)": [38.2, 40.51, 39.8, 37.6, 33.2]
+    }).set_index("Capture Day")
+    plot_gen.save_plot(
+        data=dmo_max_bout_df.rename(columns={"Longest Walk Bout (s)":"Longest Bout (s)"}),
+        plot_type='line',
+        xlabel='Assessment Number',
+        ylabel='Longest Bout (s)',
+        title='Change in Longest Walking Bouts',
+        filename='assets/img/wbd.svg'
+    )
 
-# Generate and save bar plots
-plot_gen.save_plot(peer_mws_df, 'bar', '', 'Mean Walking Speed \n (m/s)', 'Peer Comparison - Walking Speed', 'assets/img/peer_ws.svg')
-plot_gen.save_plot(peer_msl_df, 'bar', '', 'Mean Stride Length (m)', 'Peer Comparison - Stride Length', 'assets/img/peer_msl.svg')
-plot_gen.save_plot(peer_cad_df, 'bar', '', 'Mean Cadence (/s)', 'Peer Comparison - Cadence', 'assets/img/peer_mcad.svg')
+    # Now load or compute the participant's results
+    result = AggregatedResults()
+    result.read_data(load_dir)
 
-# Load the template
-env = jinja2.Environment(loader=jinja2.FileSystemLoader(searchpath=''))
-template = env.get_template('index.html')
+    # Peer comparison data frames
+    peer_mws_df = pd.DataFrame(
+        [result.mean_walking_speed, participant_peer_data['mws']],
+        columns=['Walking Speed'],
+        index=[form['participantId'], cohort]
+    )
+    peer_msl_df = pd.DataFrame(
+        [result.mean_stride_length, participant_peer_data['msl']],
+        columns=['Stride Length'],
+        index=[form['participantId'], cohort]
+    )
+    peer_cad_df = pd.DataFrame(
+        [result.mean_cadence, participant_peer_data['mc']],
+        columns=['Cadence'],
+        index=[form['participantId'], cohort]
+    )
 
-# daily stride chart 
-steps_index = list(range(24))  # Hourly index
-all_step_data = []
-all_step_labels = []
+    # Create bar charts for peer comparison
+    plot_gen.save_plot(
+        peer_mws_df,
+        'bar',
+        '',
+        'Mean Walking Speed (m/s)',
+        'Peer Comparison - Walking Speed',
+        'assets/img/peer_ws.svg'
+    )
+    plot_gen.save_plot(
+        peer_msl_df,
+        'bar',
+        '',
+        'Mean Stride Length (m)',
+        'Peer Comparison - Stride Length',
+        'assets/img/peer_msl.svg'
+    )
+    plot_gen.save_plot(
+        peer_cad_df,
+        'bar',
+        '',
+        'Mean Cadence (/s)',
+        'Peer Comparison - Cadence',
+        'assets/img/peer_mcad.svg'
+    )
 
-for i in range(result.number_sessions):
-    session = result.results[i]
-    steps = []
-    for j in range(0, len(session.hourly_speed)):
-        steps.append(session.hourly_speed[j]['strides'])
-    all_step_data.append(steps)
-    all_step_labels.append(session.day)
+    # Example: multi-subplot bar chart for daily stride charts (hourly data)
+    steps_index = list(range(24))  # Hours
+    all_step_data = []
+    all_step_labels = []
 
-plot_gen.plot_bar_multiple(all_step_data,all_step_labels,'Minutes of activity','Activity levels','assets/img/hourly_steps.svg')
-
-
-
-# Build the summary data
-sd = {
-    # Title
-    'title': 'Mobility Report',
-    
-    # Number of sessions
-    'ns':f"{result.number_sessions}",
-
-    # Number of bouts
-    'nbs': f"{result.number_of_bouts}",
-
-    # Mean Cadence
-    'cad': f"{result.mean_cadence:10.2f}",
-
-    # Mean walking speed
-    'mws': f"{result.mean_walking_speed:10.2f}",
-
-    # Mean Stride Length
-    'sl': f"{result.mean_stride_length:10.2f}",
-
-    # Mean Daily Steps 
-    # 'avg_steps' : f"{result.mean_daily_steps:10.2f}",
-    'avg_steps' : f"{15000:10.0f}",
-    # Data collection range
-    'ads': result.earliest_day().day + ' - ' + result.last_day().day,
-
-    # Start date
-    'stdt': result.earliest_day().day,
-
-    # End date
-    'eddt': result.last_day().day,
-
-    # Averate daily walking time in seconds
-    'mdwts': f"{result.mean_daily_walking_time:10.2f}",
-
-    # Average daily walking time in hours,
-    'mdwth': f"{(result.mean_daily_walking_time / 3600):2.2f}",
-
-    # Participant Code
-    'pid': form['participantId']
-}
-
-
-# Some comments for the comparison plots
-if result.mean_walking_speed>participant_peer_data['mws']:
-    sd['pmws_comments'] = 'Your walking speed is faster than the average for your condition'
-elif result.mean_walking_speed<participant_peer_data['mws']:
-    sd['pmws_comments'] = 'Your walking speed is slower than the average for your condition'
-else:
-    sd['pwms_comments'] = 'Your walking speed is the same as others with your condition'
-
-
-if result.mean_stride_length>participant_peer_data['msl']:
-    sd['pmsl_comments'] = 'Your stride length is longer than average for your condition'
-elif result.mean_stride_length<participant_peer_data['mdl']:
-    sd['pmsl_comments'] = 'Your stride length is shorter than average for your condition'
-else:
-    sd['pwsl_comments'] = 'Your stride length is the same as others with your condition'
-
-if result.mean_cadence>participant_peer_data['mc']:
-    sd['pmwcad_comments'] = 'Your walking cadence is higher than average for your condition'
-elif result.mean_cadence<participant_peer_data['mc']:
-    sd['pmwcad_comments'] = 'Your walking cadence is lower than average for your condition'
-else:
-    sd['pmwcad_comments'] = 'Your walkign cadence is the same as others with your condition'
+    # for i in range(result.number_sessions):
+    #     session = result.results[i]
+    #     steps = []
+    #     for j in range(len(session.hourly_speed)):
+    #         # Directly append the integer if session.hourly_speed[j] is just an int
+    #         steps.append(session.hourly_speed[j])
+    #     all_step_data.append(steps)
+    #     all_step_labels.append(session.day)
 
 
-html = template.render(results=result, pid='100', sd=sd)
+    # plot_gen.plot_bar_multiple(
+    #     data_list=all_step_data,
+    #     labels=all_step_labels,
+    #     ylabel='Minutes of activity',
+    #     title='Activity levels',
+    #     filename='assets/img/hourly_steps.svg'
+    # )
 
-# Write the HTML file
-with open('report.html', 'w') as f:
-    f.write(html)
+    # Now, optionally build a summary dictionary for a Jinja2 template
+    sd = {
+        'title': 'Mobility Report',
+        'ns': f"{result.number_sessions}",
+        'nbs': f"{result.number_of_bouts}",
+        'cad': f"{result.mean_cadence:10.2f}",
+        'mws': f"{result.mean_walking_speed:10.2f}",
+        'sl': f"{result.mean_stride_length:10.2f}",
+        'avg_steps': f"{15000:10.0f}",
+        'ads': result.earliest_day().day + ' - ' + result.last_day().day,
+        'stdt': result.earliest_day().day,
+        'eddt': result.last_day().day,
+        'mdwts': f"{result.mean_daily_walking_time:10.2f}",
+        'mdwth': f"{(result.mean_daily_walking_time / 3600):2.2f}",
+        'pid': form['participantId']
+    }
+
+    # Add some logic to compare participant vs peer
+    if result.mean_walking_speed > participant_peer_data['mws']:
+        sd['pmws_comments'] = 'Your walking speed is faster than the average for your condition'
+    else:
+        sd['pmws_comments'] = 'Your walking speed is slower than the average for your condition'
+
+    # etc. for stride length, cadence, etc.
+    # ... fill out sd dict as needed ...
+
+    # Render a Jinja2 template (index.html) into an HTML report
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader(searchpath=''))
+    template = env.get_template('index.html')
+    html = template.render(results=result, pid='100', sd=sd)
+
+    with open('report.html', 'w') as f:
+        f.write(html)
+
+    # Optionally convert HTML to PDF:
+    # pdfkit.from_file('report.html', 'report.pdf')
+
+
+if __name__ == '__main__':
+    main()

@@ -95,7 +95,11 @@
     width: 100%;
     height: 100vh; /* Fill the screen vertically */
   }
-  
+  .header-col-left,
+.header-col-right {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
   /* Left Column (Summary Data) */
   .header-col-left {
     flex: 1; /* Equivalent to col-lg-7 ratio */
@@ -194,12 +198,6 @@
     /* or text-align: right if you prefer */
   }
   
-  /* Right Column (Full-Height Image) */
-  .header-col-right {
-    flex: 1; /* Equivalent to col-lg-5 ratio */
-    height: 100%;
-  }
-  
   .header-image {
     display: block;
     width: 100%;
@@ -220,7 +218,7 @@
     background: rgb(39, 9, 76);
     color: white;
     border-radius: 0px 0px 0 0;
-    padding: 10px 00px;
+    padding: 20px 00px;
     text-align: center;
     max-width: 100%;
     margin: 0 auto;
@@ -252,29 +250,25 @@
 }
 
 .assessment-group-right {
-    padding-left: 5%;
+    padding-left: 0%;
   }
   .assessment-col-label,
-.assessment-col-value {
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  flex: 1;
-}
+  .assessment-col-value {
+    white-space: nowrap;        /* 💡 Prevents wrapping */
+    overflow: hidden;           /* Optional: hides overflow */
+    text-overflow: ellipsis;    /* Optional: adds "..." if content is too long */
+  }
   /* Each column in Assessment Info */
   .assessment-col {
     flex: 1;
     padding: 20px;
   }
 
-  .assessment-col-label { flex: 1; }
-.assessment-col-value { flex: 1; }
-  
   .assessment-text {
     margin-top: 0px;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     font-weight: 450;
-    padding: 8px;
+    padding: 25px;
  }
   
   /* ------------------------------------------------------ */
