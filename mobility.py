@@ -134,15 +134,23 @@ def main():
     #         steps.append(session.hourly_speed[j])
     #     all_step_data.append(steps)
     #     all_step_labels.append(session.day)
+    all_step_data = [
+        [0, 0., 0., 0., 0., 0., 19.2, 8.47, 24., 036.23, 33.52, 08.50, 3.47, 4.49, 2.9, 35.52, 45.50, 12.47, 3.49, 0.48, 0, 0, 0, 0],         # Session 1
+        [ 0, 0., 0., 0., 0., 0., 19.2, 8.47, 24., 36.23, 33.52, 8.50, 3.47, 4.49, 2.9, 35.52, 45.50, 12.47, 3.49, 0.48, 0, 0, 0, 0]    # Session 2
+    ]
+    all_step_labels = ["Session 1", "Session 2"]
+    
 
 
-    # plot_gen.plot_bar_multiple(
-    #     data_list=all_step_data,
-    #     labels=all_step_labels,
-    #     ylabel='Minutes of activity',
-    #     title='Activity levels',
-    #     filename='assets/img/hourly_steps.svg'
-    # )
+    plot_gen.plot_bar_multiple(
+        data_list=all_step_data,
+        labels=all_step_labels,
+        ylabel="Minutes of activity",
+        title="Activity Levels by Session",
+        filename="assets/img/hourly_steps.svg",
+        facecolor=(247/256, 240/256, 231/256),  # optional
+        bar_color="#FF6F61"                     # optional
+    )
 
     # Now, optionally build a summary dictionary for a Jinja2 template
     sd = {

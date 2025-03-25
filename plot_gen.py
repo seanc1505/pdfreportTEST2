@@ -10,8 +10,7 @@ def save_plot(
     ylabel,
     title,
     filename,
-    facecolor=(247/256, 240/256, 231/256)
-):
+    facecolor=(247/256, 240/256, 231/256)):
     """
     Generate and save a plot (bar or line) based on input parameters.
 
@@ -149,11 +148,13 @@ def save_plot(
 
 
 def plot_bar_multiple(
-    data_list, 
-    labels, 
-    ylabel, 
-    title, 
-    filename
+    data_list,
+    labels,
+    ylabel,
+    title,
+    filename,
+    facecolor=(247/256, 240/256, 231/256),
+    bar_color='#FF6F61'
 ):
     """
     Generate a multi-subplot bar chart and save it with larger font sizes.
@@ -170,21 +171,30 @@ def plot_bar_multiple(
         Overall figure title or repeated subplot title.
     filename : str
         File path to save the resulting chart image.
+    facecolor : tuple
+        Background color as an (R, G, B) tuple, 0..1.
+    bar_color : str
+        Hex color code for the bar (default #FF6F61).
     """
+
     num_plots = len(data_list)
 
+    # Create figure with subplots
+    # layout="constrained" auto-adjusts padding so labels, titles don’t overlap
     fig, axes = plt.subplots(
         num_plots,
         1,
         layout="constrained",
-        facecolor=(247/256, 240/256, 231/256),
+        facecolor=facecolor,
         figsize=(8, num_plots * 3)
     )
 
-    title_size = 24
-    label_size = 22
-    tick_size = 12
+    # Larger font sizes
+    title_size = 18
+    label_size = 10
+    tick_size = 10
 
+    # Auto-wrap y-label if it's too long
     max_label_length = 10
     if len(ylabel) > max_label_length:
         split_index = ylabel[:max_label_length].rfind(" ")
@@ -192,13 +202,26 @@ def plot_bar_multiple(
             split_index = max_label_length
         ylabel = ylabel[:split_index] + "\n" + ylabel[split_index+1:]
 
+    # If there's only one subplot, make axes iterable
     if num_plots == 1:
         axes = [axes]
 
     for ax, (data_values, subplot_title) in zip(axes, zip(data_list, labels)):
-        bars = ax.bar(range(len(data_values)), data_values, color='#FF6F61')
-        max_height = max(data_values) if len(data_values) else 1
+        # Convert data_values to list/array if it isn't already
+        data_values = np.array(data_values, dtype=float)
 
+        # Plot bars
+        bars = ax.bar(
+            x=range(len(data_values)),
+            height=data_values,
+            color=bar_color
+        )
+
+        # Calculate maximum bar height to set a little buffer
+        max_height = data_values.max() if len(data_values) else 1
+        buffer = max_height * 0.15
+
+        # Annotate each bar
         for bar in bars:
             height = bar.get_height()
             if height > 0:
@@ -208,28 +231,40 @@ def plot_bar_multiple(
                     f'{height:.1f}',
                     ha='center',
                     va='bottom',
-                    fontsize=12
+                    fontsize=tick_size
                 )
 
-        buffer = max_height * 0.15
+        # Set the y-limit with some buffer
         ax.set_ylim(0, max_height + buffer)
 
-        ax.yaxis.set_major_locator(plt.MaxNLocator(5))
-        ax.tick_params(axis='y', labelsize=tick_size)
-
+        # Set x ticks (0..N-1) if N bars
         ax.set_xticks(range(len(data_values)))
         ax.set_xticklabels(range(len(data_values)), fontsize=tick_size)
 
-        ax.set_ylabel(ylabel, fontsize=label_size, rotation=0, labelpad=80)
+        # Use the same tick size on both x and y
+        ax.tick_params(axis='both', labelsize=tick_size)
+        ax.yaxis.set_major_locator(plt.MaxNLocator(5))
+
+        # Axis labels, subplot titles
+        ax.set_ylabel(ylabel, fontsize=label_size, rotation=0, labelpad=40)
         ax.set_title(subplot_title, fontsize=title_size)
+
+        # Clean up spines
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
-        ax.set_facecolor((247/256, 240/256, 231/256))
 
+        # Background color for each subplot
+        ax.set_facecolor(facecolor)
+
+    # (Optional) If you'd like an overall figure title
+    # fig.suptitle(title, fontsize=title_size, y=1.02)
+
+    # Save the figure
     fig.savefig(
         filename,
         transparent=True,
         bbox_inches="tight",
         pad_inches=0.5
     )
+
     plt.close(fig)
