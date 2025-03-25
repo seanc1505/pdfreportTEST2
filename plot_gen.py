@@ -83,7 +83,7 @@ def save_plot(data, plot_type, xlabel, ylabel, title, filename, facecolor=(247/2
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
 
-    fig.savefig(filename, facecolor=fig.get_facecolor(), bbox_inches="tight", pad_inches=0.5)  # Ensures text is fully visible
+    fig.savefig(filename, transparent=True, bbox_inches="tight", pad_inches=0.5)  # Ensures text is fully visible
     plt.close(fig)
 
 
@@ -127,5 +127,5 @@ def plot_bar_multiple(data_list, labels, ylabel, title, filename):
         ax.spines['right'].set_visible(False)
         ax.set_facecolor((247/256, 240/256, 231/256))
 
-    fig.savefig(filename, facecolor=fig.get_facecolor(), bbox_inches="tight", pad_inches=0.5)  # Ensures text is fully visible
+    fig.savefig(filename, transparent=True, bbox_inches="tight", pad_inches=0.5)  # Ensures text is fully visible
     plt.close(fig)
