@@ -79,40 +79,39 @@
   <!-- ============== MOST RECENT ASSESSMENT SECTION ============== -->
   <section class="assessment-section">
     <div class="assessment-banner">
-      <h1 class="assessment-title">Most Recent Assessment</h1>
+      <h1 class="assessment-title">Your Last Assessment</h1>
     </div>
   
     <!-- Single row with 4 columns -->
     <div class="assessment-info">
+        <!-- Left Side (Dates) -->
+        <div class="assessment-group-left">
+          <div class="assessment-col-label text-left">
+            <p class="assessment-text"><strong>Start date:</strong></p>
+            <p class="assessment-text"><strong>End Date:</strong></p>
+            <p class="assessment-text"><strong>Valid Measurement Days:</strong></p>
+          </div>
+          <div class="assessment-col-value text-left">
+            <p class="assessment-text">01/03/2025</p>
+            <p class="assessment-text">06/03/2025</p>
+            <p class="assessment-text">5</p>
+          </div>
+        </div>
       
-      <!-- Column 1: Left Labels (Dates) -->
-      <div class="assessment-col-label text-left">
-        <p class="assessment-text"><strong>Start date:</strong></p>
-        <p class="assessment-text"><strong>End Date:</strong></p>
-        <p class="assessment-text"><strong>Valid Measurement Days:</strong></p>
+        <!-- Right Side (Wear Time, Bouts, etc.) -->
+        <div class="assessment-group-right">
+          <div class="assessment-col-label text-left">
+            <p class="assessment-text"><strong>Total Wear Time (hours):</strong></p>
+            <p class="assessment-text"><strong>Number of walking bouts:</strong></p>
+            <p class="assessment-text"><strong>Time spent walking (hours):</strong></p>
+          </div>
+          <div class="assessment-col-value text-center">
+            <p class="assessment-text">140</p>
+            <p class="assessment-text">424</p>
+            <p class="assessment-text">2.3</p>
+          </div>
+        </div>
       </div>
-  
-      <!-- Column 2: Left Values -->
-      <div class="assessment-col-value text-left">
-        <p class="assessment-text">01/03/2025</p>
-        <p class="assessment-text">06/03/2025</p>
-        <p class="assessment-text">5</p>
-      </div>
-  
-      <!-- Column 3: Right Labels -->
-      <div class="assessment-col-label text-right">
-        <p class="assessment-text"><strong>Total Wear Time (hours):</strong></p>
-        <p class="assessment-text"><strong>Number of walking bouts:</strong></p>
-        <p class="assessment-text"><strong>Time spent walking (hours):</strong></p>
-      </div>
-  
-      <!-- Column 4: Right Values -->
-      <div class="assessment-col-value text-right">
-        <p class="assessment-text">140</p>
-        <p class="assessment-text">424</p>
-        <p class="assessment-text">2.3</p>
-      </div>
-    </div>
   </section>
   
 
@@ -120,79 +119,85 @@
 
   <!-- ============== CHANGE IN MOBILITY OUTCOMES SECTION ============== -->
   <section class="section-container bg-box">
-    <h2 class="font-weight-bold text-primary text-left">Change in Mobility Outcomes</h2>
+    <h2 class="font-weight-bold text-primary ">Change in Mobility Outcomes</h2>
 
     <!-- Walking Speed Chart -->
-    <div class="flex-row align-center mt-3">
-      <div class="flex-col-8 text-center">
-        <img src="assets/img/dmo.svg" class="chart-image" alt="Walking Speed Chart" />
+    <div class="chart-block flex-row align-center mt-3">
+        <div class="chart-image-wrapper text-left">
+          <img src="assets/img/dmo.svg" class="chart-image" alt="Walking Speed Chart" />
+        </div>
+        <div class="mobility-text-wrapper text-left">
+          <p class="mobility-report-text">
+            Your mean walking speed was 1.9 metres per second in your most recent assessment.
+          </p>
+          <p class="mobility-report-text text-left">
+            It has not changed from your last assessment.
+          </p>
+        </div>
       </div>
-      <div class="flex-col-4">
-        <p class="mobility-report-text">
-          <strong>Average walking speed (m/sec)</strong> over all the capture sessions. This shows how your average
-          walking speed has changed over time.
-        </p>
-      </div>
-    </div>
 
     <!-- Longest Walking Bout Chart -->
-    <div class="flex-row align-center mt-4">
-      <div class="flex-col-8 text-center">
+    <div class="chart-block flex-row  align-center mt-3">
+        <div class="chart-image-wrapper text-left">
         <img src="assets/img/wbd.svg" class="chart-image" alt="Longest Walking Bout Chart" />
       </div>
-      <div class="flex-col-4">
+      <div class="mobility-text-wrapper text-left">
         <p class="mobility-report-text">
-          <strong>Longest walking bout</strong> over all capture sessions. This shows how the longest periods of walking
-          have changed over time.
+            Your longest walking bout lasted 33 seconds during your most recent assessment.
         </p>
+        <p class="mobility-report-text text-left">
+            It declined by 4.4 seconds from your last assessment. 
+          </p>
       </div>
     </div>
 
     <!-- ============== MOBILITY OUTCOMES RELATIVE TO PEERS ============== -->
     <h2 class="font-weight-bold text-primary text-left mt-5">
-      Mobility Outcomes Relative to Peers
-    </h2>
-
-    <div class="flex-row align-center graph-row">
-      <div class="flex-col-7 text-center">
-        <img src="assets/img/peer_ws.svg" class="chart-image" alt="Peer Walking Speed" />
+        Mobility Outcomes Relative to Peers
+      </h2>
+      
+      <!-- Walking Speed -->
+      <div class="chart-block graph-row">
+        <div class="chart-image-wrapper text-center">
+          <img src="assets/img/peer_ws.svg" class="chart-image" alt="Peer Walking Speed" />
+        </div>
+        <div class="mobility-text-wrapper">
+          <p class="mobility-report-text">
+            Your walking speed is faster than the average for your condition
+          </p>
+        </div>
       </div>
-      <div class="flex-col-5">
-        <p class="mobility-report-text">
-          Your walking speed is faster than the average for your condition
-        </p>
+      
+      <!-- Cadence -->
+      <div class="chart-block graph-row">
+        <div class="chart-image-wrapper text-center">
+          <img src="assets/img/peer_mcad.svg" class="chart-image" alt="Peer Cadence" />
+        </div>
+        <div class="mobility-text-wrapper">
+          <p class="mobility-report-text">
+            Your stride length is longer than average for your condition
+          </p>
+        </div>
       </div>
-    </div>
-
-    <div class="flex-row align-center graph-row">
-      <div class="flex-col-7 text-center">
-        <img src="assets/img/peer_mcad.svg" class="chart-image" alt="Peer Cadence" />
+      
+      <!-- Stride Length -->
+      <div class="chart-block graph-row">
+        <div class="chart-image-wrapper text-center">
+          <img src="assets/img/peer_msl.svg" class="chart-image" alt="Peer Stride Length" />
+        </div>
+        <div class="mobility-text-wrapper">
+          <p class="mobility-report-text">
+            Your stride length is the same as others with your condition
+          </p>
+        </div>
       </div>
-      <div class="flex-col-5">
-        <p class="mobility-report-text">
-          Your stride length is longer than average for your condition
-        </p>
-      </div>
-    </div>
-
-    <div class="flex-row align-center graph-row">
-      <div class="flex-col-7 text-center">
-        <img src="assets/img/peer_msl.svg" class="chart-image" alt="Peer Stride Length" />
-      </div>
-      <div class="flex-col-5">
-        <p class="mobility-report-text">
-          Your stride length is the same as others with your condition
-        </p>
-      </div>
-    </div>
-  </section>
-
+      
   <!-- ============== DAILY ACTIVITY PLOTS SECTION ============== -->
   <section class="daily-activity-section">
     <h2 class="font-weight-bold text-primary text-left">Daily Activity Plots</h2>
-    <p class="mobility-report-text text-left" style="font-size: 1.2rem;">
+    <!-- <p class="mobility-report-text text-left" style="font-size: 1.2rem;">
       These charts below detail your general activity levels during the day.
-    </p>
+    </p> -->
 
     <div class="text-center">
       <img

@@ -52,7 +52,7 @@ peer_msl_df = pd.DataFrame([result.mean_stride_length, participant_peer_data['ms
 peer_cad_df = pd.DataFrame([result.mean_cadence, participant_peer_data['mc']], columns=['Cadence'], index=[form['participantId'], cohort])
 
 # Generate and save bar plots
-plot_gen.save_plot(peer_mws_df, 'bar', '', 'Mean Walking Speed \n (m/sec)', 'Peer Comparison - Walking Speed', 'assets/img/peer_ws.svg')
+plot_gen.save_plot(peer_mws_df, 'bar', '', 'Mean Walking Speed \n (m/s)', 'Peer Comparison - Walking Speed', 'assets/img/peer_ws.svg')
 plot_gen.save_plot(peer_msl_df, 'bar', '', 'Mean Stride Length (m)', 'Peer Comparison - Stride Length', 'assets/img/peer_msl.svg')
 plot_gen.save_plot(peer_cad_df, 'bar', '', 'Mean Cadence (/s)', 'Peer Comparison - Cadence', 'assets/img/peer_mcad.svg')
 

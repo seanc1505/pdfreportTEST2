@@ -18,10 +18,9 @@ def save_plot(data, plot_type, xlabel, ylabel, title, filename, facecolor=(247/2
     fig, ax = plt.subplots(facecolor=facecolor)
     
     # Define larger font sizes
-    title_size = 24
-    label_size = 22
+    title_size = 18
+    label_size = 12
     tick_size = 18
-    legend_size = 20
     # Automatically wrap Y-label if it's too long
     max_label_length = 15  # Set threshold for breaking
     if len(ylabel) > max_label_length:
@@ -48,17 +47,26 @@ def save_plot(data, plot_type, xlabel, ylabel, title, filename, facecolor=(247/2
         ax.set_xticks(range(len(data)))
         ax.set_xticklabels(data.index, rotation=0, fontsize=tick_size)  # Increase tick label size
     elif plot_type == 'line':
-        data.plot(kind='line', ax=ax, style='o-', markersize=12, linewidth=3, figsize=(8, 4), grid=False, color='#6B5B95')
-
+        data.plot(
+    kind='line',
+    ax=ax,
+    style='s',
+    linestyle=(0, (6,2)),             # square markers + dashed line
+    markersize=8,               # smaller markers
+    linewidth=1,              # thinner line
+    figsize=(8, 4),
+    grid=False,
+    color='#6B5B95'
+)
         # Change X-axis to numeric positions
         ax.set_xticks(range(len(data)))
         ax.set_xticklabels(data.index, rotation=45)  # Rotate for better readability
-
+        ax.legend().remove()
         # Add value labels next to each point only if greater than 0
         for i, txt in enumerate(data.iloc[:, 0]):
             if txt > 0:  # Only show if value > 0
                 ax.annotate(f'{txt:.1f}', (i, data.iloc[i, 0]), textcoords="offset points",
-                            xytext=(10, 10), ha='center', fontsize=12, fontweight='normal', color='black')
+                            xytext=(0, 15), ha='center', fontsize=12, fontweight='normal', color='black')
 
     else:
         raise ValueError("Unsupported plot type. Use 'bar' or 'line'.")
@@ -70,7 +78,7 @@ def save_plot(data, plot_type, xlabel, ylabel, title, filename, facecolor=(247/2
     ax.tick_params(axis='y', labelsize=tick_size)  # Make Y-axis labels larger
     ax.set_xlabel(xlabel, fontsize=label_size)
     ax.set_ylabel(ylabel, fontsize=label_size,rotation=0, labelpad=80)
-    ax.set_title(title, fontsize=title_size, fontweight='bold')
+    ax.set_title(title, fontsize=title_size)
     ax.set_facecolor(facecolor)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -114,7 +122,7 @@ def plot_bar_multiple(data_list, labels, ylabel, title, filename):
         ax.set_xticks(range(len(data)))
         ax.set_xticklabels(range(24), fontsize=tick_size)
         ax.set_ylabel(ylabel, fontsize=label_size,rotation=0, labelpad=80)
-        ax.set_title(label, fontsize=title_size, fontweight="bold")
+        ax.set_title(label, fontsize=title_size)
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
         ax.set_facecolor((247/256, 240/256, 231/256))
