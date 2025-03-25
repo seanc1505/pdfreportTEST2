@@ -100,7 +100,7 @@ def save_plot(
         for x_val, y_val in data.iloc[:, 0].items():
             if y_val > 0:
                 ax.annotate(
-                    f'{y_val:.1f}',
+                    f'{y_val:.2f}',
                     (x_val, y_val),
                     xytext=(0, 8),
                     textcoords='offset points',
