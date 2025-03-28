@@ -34,7 +34,6 @@ def save_plot(
     """
     figsize=(12, 6)
     
-    fig, ax = plt.subplots(facecolor=facecolor, figsize=figsize)
     # Larger font sizes
     title_size = 20
     label_size = 16
@@ -49,6 +48,8 @@ def save_plot(
         ylabel = ylabel[:split_index] + "\n" + ylabel[split_index+1:]
 
     if plot_type == 'bar':
+        
+        fig, ax = plt.subplots(facecolor=facecolor)
         # Simple 2-color palette
         colors = ['#FF6F61', '#6B5B95']
         bar_width = 0.5
@@ -83,6 +84,8 @@ def save_plot(
         ax.set_xticklabels(data.index, rotation=0, fontsize=tick_size)
 
     elif plot_type == 'line':
+        
+        fig, ax = plt.subplots(facecolor=facecolor, figsize=figsize)
         # Plot each row in 'data' (but typically you have 1 column)
         # NOTE: key difference from your original approach is we use data.index
         # as the X-values, not 0..N. This keeps points & labels aligned.
