@@ -32,11 +32,11 @@ def save_plot(
     facecolor : tuple
         Background color as an (R, G, B) tuple with floats in [0,1].
     """
-
-    fig, ax = plt.subplots(facecolor=facecolor)
-
+    figsize=(12, 6)
+    
+    fig, ax = plt.subplots(facecolor=facecolor, figsize=figsize)
     # Larger font sizes
-    title_size = 18
+    title_size = 20
     label_size = 16
     tick_size = 16
 
@@ -76,7 +76,7 @@ def save_plot(
                         f'{height:.1f}',
                         ha='center',
                         va='bottom',
-                        fontsize=16
+                        fontsize=tick_size
                     )
 
         ax.set_xticks(x_positions)
@@ -105,7 +105,7 @@ def save_plot(
                     xytext=(0, 8),
                     textcoords='offset points',
                     ha='center',
-                    fontsize=12
+                    fontsize=16
                 )
 
         # Ensure tick labels match the actual index
@@ -132,12 +132,12 @@ def save_plot(
     # Labels & title
     ax.set_xlabel(xlabel, fontsize=label_size)
     ax.set_ylabel(ylabel, fontsize=label_size, rotation=0, labelpad=80)
-    ax.set_title(title, fontsize=title_size)
+    ax.set_title(title, fontsize=title_size, pad=40)  # 👈 add pad in points
+
 
     # Style
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
-
     fig.savefig(
         filename,
         transparent=True,
@@ -186,7 +186,7 @@ def plot_bar_multiple(
         1,
         layout="constrained",
         facecolor=facecolor,
-        figsize=(8, num_plots * 3)
+        figsize=(10, num_plots * 3)
     )
 
     # Larger font sizes
@@ -221,18 +221,18 @@ def plot_bar_multiple(
         max_height = data_values.max() if len(data_values) else 1
         buffer = max_height * 0.15
 
-        # Annotate each bar
-        for bar in bars:
-            height = bar.get_height()
-            if height > 0:
-                ax.text(
-                    bar.get_x() + bar.get_width() / 2,
-                    height,
-                    f'{height:.1f}',
-                    ha='center',
-                    va='bottom',
-                    fontsize=tick_size
-                )
+        # # Annotate each bar
+        # for bar in bars:
+        #     height = bar.get_height()
+        #     if height > 0:
+        #         ax.text(
+        #             bar.get_x() + bar.get_width() / 2,
+        #             height,
+        #             f'{height:.1f}',
+        #             ha='center',
+        #             va='bottom',
+        #             fontsize=tick_size
+        #         )
 
         # Set the y-limit with some buffer
         ax.set_ylim(0, max_height + buffer)

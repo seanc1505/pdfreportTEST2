@@ -55,6 +55,8 @@
     color: #0D2E4F;
   }
   
+
+  
   /* ------------------------------------------------------ */
   /* 2. NAVBAR */
   /* ------------------------------------------------------ */
@@ -64,7 +66,9 @@
   }
   
   .navbar-container {
-    max-width: 1400px;
+    padding-left: 5%;   /* Match .header-col-left */
+    padding-right: 5%;
+    /* max-width: 1400px; */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -337,7 +341,7 @@
   .chart-image {
     width: 100%;
     height: auto;
-    max-height: 500px; /* prevents excessive stretching */
+    max-height: 600px; /* prevents excessive stretching */
   }
   .bigger-chart {
     /* Let’s increase the max-height or width as you desire */
@@ -370,7 +374,7 @@
   /* 7. Typography & Utility */
   /* ------------------------------------------------------ */
   .mobility-report-text {
-    font-size: 1.3rem; /* Larger body text */
+    font-size: 1.6rem; /* Larger body text */
     line-height: 1.3;
     max-width: 100%;
     margin: 0 auto;
